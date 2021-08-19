@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserFormComponent implements OnInit {
 
-  name: string
-  age: number
+  name = ''
+  age = ''
   colSpan: number = 2
   src: string = 'https://i.stack.imgur.com/mA99c.jpg?s=64&g=1'
+  isWarring: boolean = false
 
   constructor() { }
 
@@ -23,5 +24,13 @@ export class UserFormComponent implements OnInit {
 
   input1($event: any) {
     this.name = $event.target.value
+  }
+
+  getClasses() {
+    return {
+      cw: this.isWarring,
+      cr: false,
+      bc: true
+    }
   }
 }
