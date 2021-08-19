@@ -20,4 +20,8 @@ export class UserFormComponent implements OnInit {
   save(event:any) {
     console.log(event)
   }
+
+  input1($event: any) {
+    this.name = $event.target.value
+  }
 }
