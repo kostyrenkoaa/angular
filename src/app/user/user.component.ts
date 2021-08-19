@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {User} from "../models/user";
 
 @Component({
   selector: 'app-user',
@@ -6,6 +7,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+
+  @Input() user: User
+  @Input('myText') text: string
+
+  _userAge: number
+
+  @Input()
+    set userAge(age: number) {
+    if (age < 0) {
+      this._userAge = 0
+      return
+    }
+
+    this._userAge = age
+  }
+  get UserAge() {
+    return this._userAge
+  }
 
   constructor() { }
 
