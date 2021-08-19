@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-form.component.css']
 })
 export class UserFormComponent implements OnInit {
-
+  title: string = 'Users Form'
   name = ''
   age = ''
   colSpan: number = 2
