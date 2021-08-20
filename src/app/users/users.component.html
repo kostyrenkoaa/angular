@@ -14,10 +14,11 @@
   <ng-template ngSwitchCase="2">2</ng-template>
   <ng-template ngSwitchCase="test">3TT</ng-template>
   <ng-template ngSwitchDefault>000000</ng-template>
-
-
 </div>
 
+<ul>
+  <li *ngFor="let item of numbers; let i = index">{{i + ' ' + item}}</li>
+</ul>
 
 
 <!--<app-user-form #formUser (onUserAdded)="onUserChanged($event)" ></app-user-form>-->

@@ -13,6 +13,7 @@ export class UsersComponent implements OnInit {
   name: any;
   isShow: boolean = true;
   numberUser: any;
+  numbers: number[] = [1,2,3,4,5,6,7,8,9,10]
 
   constructor() {
     this.user = new User('Вася', 24)
