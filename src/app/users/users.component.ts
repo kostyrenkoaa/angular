@@ -10,6 +10,7 @@ export class UsersComponent implements OnInit {
   title: string = 'Users List'
   userAge: number = 0
   user: User
+  name: any;
 
   constructor() {
     this.user = new User('Вася', 24)
@@ -20,5 +21,9 @@ export class UsersComponent implements OnInit {
 
   getTitle(): string {
     return this.title
+  }
+
+  onUserChanged($user: User) {
+    this.user = $user
   }
 }

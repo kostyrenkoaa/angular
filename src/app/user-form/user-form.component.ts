@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {User} from "../models/user";
 
 @Component({
   selector: 'app-user-form',
@@ -7,30 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserFormComponent implements OnInit {
   title: string = 'Users Form'
-  name = ''
-  age = ''
-  colSpan: number = 2
-  src: string = 'https://i.stack.imgur.com/mA99c.jpg?s=64&g=1'
-  isWarring: boolean = false
+
+  @Output() onUserAdded: EventEmitter<User> = new EventEmitter<User>()
+  // @Output() userChange: EventEmitter<string> = new EventEmitter<string>()
+
+  name: string = ''
+  age: number = 0
+
+  user: User
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  save(event:any) {
-    console.log(event)
+  save() {
+    this.user = new User(this.name, this.age)
+    this.onUserAdded.emit(this.user)
   }
 
   input1($event: any) {
     this.name = $event.target.value
   }
 
-  getClasses() {
-    return {
-      cw: this.isWarring,
-      cr: false,
-      bc: true
-    }
-  }
+  // onNameUserChange($event: string) {
+  //   this.name = $event
+  //   this.userChange.emit($event)
+  // }
 }

@@ -1,6 +1,6 @@
 <h1>{{ getTitle() }}</h1>
 
-<app-user-form></app-user-form>
+<app-user-form (onUserAdded)="onUserChanged($event)" ></app-user-form>
 
 <h2>Users</h2>
 <app-user [user]="user" [myText]="title" [userAge]="userAge"></app-user>
