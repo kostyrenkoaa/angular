@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, ContentChild, EventEmitter, OnInit, Output, ViewChild} from '@angular/core';
 import {User} from "../models/user";
 
 @Component({
@@ -11,7 +11,8 @@ export class UserFormComponent implements OnInit {
 
   @Output() onUserAdded: EventEmitter<User> = new EventEmitter<User>()
   // @Output() userChange: EventEmitter<string> = new EventEmitter<string>()
-
+// @ContentChild('a')
+// @ViewChild('a')
   name: string = ''
   age: number = 0
 
@@ -25,6 +26,7 @@ export class UserFormComponent implements OnInit {
   save() {
     this.user = new User(this.name, this.age)
     this.onUserAdded.emit(this.user)
+    console.log(this.user);
   }
 
   input1($event: any) {
