@@ -11,6 +11,8 @@ export class UsersComponent implements OnInit {
   userAge: number = 0
   user: User
   name: any;
+  isShow: boolean = true;
+  numberUser: any;
 
   constructor() {
     this.user = new User('Вася', 24)

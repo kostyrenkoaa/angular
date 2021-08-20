@@ -1,10 +1,30 @@
 <h1>{{ getTitle() }}</h1>
 
-<app-user-form #formUser (onUserAdded)="onUserChanged($event)" ></app-user-form>
+<input type="checkbox" [(ngModel)]="isShow">
 
-<h2>Users</h2>
-<app-user [user]="user" [myText]="title" [userAge]="userAge"></app-user>
+<p *ngIf="isShow; else elseBlock">test</p>
+<ng-template #elseBlock>
+  <p>Test3</p>
+</ng-template>
 
-<input type="text" [(ngModel)]="userAge">
+<input type="text" [(ngModel)]="numberUser">
 
-<button (click)="formUser.save()">Ac</button>
+<div [ngSwitch]="numberUser">
+  <ng-template ngSwitchCase="1">1</ng-template>
+  <ng-template ngSwitchCase="2">2</ng-template>
+  <ng-template ngSwitchCase="test">3TT</ng-template>
+  <ng-template ngSwitchDefault>000000</ng-template>
+
+
+</div>
+
+
+
+<!--<app-user-form #formUser (onUserAdded)="onUserChanged($event)" ></app-user-form>-->
+
+<!--<h2>Users</h2>-->
+<!--<app-user [user]="user" [myText]="title" [userAge]="userAge"></app-user>-->
+
+<!--<input type="text" [(ngModel)]="userAge">-->
+
+<!--<button (click)="formUser.save()">Ac</button>-->
