@@ -1,31 +1,8 @@
 <h1>{{ getTitle() }}</h1>
 
-<input type="checkbox" [(ngModel)]="isShow">
+<app-user-form (onUserAdded)="onUserChanged($event)" ></app-user-form>
 
-<p *ngIf="isShow; else elseBlock">test</p>
-<ng-template #elseBlock>
-  <p>Test3</p>
-</ng-template>
+<h2>Users</h2>
+<app-user [user]="user" [myText]="title" [userAge]="userAge"></app-user>
 
-<input type="text" [(ngModel)]="numberUser">
-
-<div [ngSwitch]="numberUser">
-  <ng-template ngSwitchCase="1">1</ng-template>
-  <ng-template ngSwitchCase="2">2</ng-template>
-  <ng-template ngSwitchCase="test">3TT</ng-template>
-  <ng-template ngSwitchDefault>000000</ng-template>
-</div>
-
-<ul>
-  <li *ngFor="let item of numbers; let i = index">{{i + ' ' + item}}</li>
-</ul>
-
-
-<!--<app-user-form #formUser (onUserAdded)="onUserChanged($event)" ></app-user-form>-->
-
-<!--<h2>Users</h2>-->
-<!--<app-user [user]="user" [myText]="title" [userAge]="userAge"></app-user>-->
-
-<!--<input type="text" [(ngModel)]="userAge">-->
-
-<!--<button (click)="formUser.save()">Ac</button>-->
+<app-user *ngFor="let user of users" [user]="user"></app-user>

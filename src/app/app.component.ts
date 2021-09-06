@@ -13,8 +13,7 @@ export class AppComponent {
   age: number
   users: User[] = []
 
-  constructor(private userService: UserService) {
-    this.users = this.userService.getUsers()
+  constructor() {
   }
 
   addUser(): void {

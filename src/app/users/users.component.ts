@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../models/user";
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-users',
@@ -9,17 +10,15 @@ import {User} from "../models/user";
 export class UsersComponent implements OnInit {
   title: string = 'Users List'
   userAge: number = 0
+  users: User[]
   user: User
   name: any;
-  isShow: boolean = true;
-  numberUser: any;
-  numbers: number[] = [1,2,3,4,5,6,7,8,9,10]
 
-  constructor() {
-    this.user = new User('Вася', 24)
+  constructor(private UserService: UserService) {
   }
 
   ngOnInit(): void {
+    this.users = this.UserService.getUsers()
   }
 
   getTitle(): string {
